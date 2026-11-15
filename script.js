@@ -23,7 +23,7 @@ const seed = {
     {id:'GW-1046',category:'Housekeeping',title:'Basement cleaning request',description:'Please arrange cleaning near parking slot 44.',location:'Basement B1',priority:'Low',status:'Resolved',date:plusDays(-4),comments:['Area cleaned']},
     {id:'GW-1045',category:'Security',title:'Access card not working',description:'My access card is not opening the side entrance.',location:'Block C entrance',priority:'Medium',status:'In Progress',date:plusDays(-2),comments:[]}
   ],
-  read:[],profile:{name:'Aarav Sharma',flat:'B-1204',email:'aarav@example.com',visible:true}
+  read:[],profile:{name:'Shaurya Jain',flat:'B-1204',email:'Shaurya@example.com',visible:true}
 };
 let data = loadData(), role='Resident', noticeFilter='All', selectedDate=plusDays(0), calendarDate=new Date(today.getFullYear(),today.getMonth(),1), lastBill=null;
 let visitors = JSON.parse(localStorage.getItem('haven_rwa_visitors') || '[]');
