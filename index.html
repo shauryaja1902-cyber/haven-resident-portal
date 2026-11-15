@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#142b4a">
+  <title>Haven — RWA Maintenance Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Haven home"><span class="brand-mark">H</span><span>haven<span class="brand-sub">RESIDENT PORTAL</span></span></a>
+      <div class="society-label">YOUR COMMUNITY</div>
+      <div class="society-name">Greenwood Residency <span>⌄</span></div>
+      <nav class="nav-menu" aria-label="Main navigation">
+        <button class="nav-link active" data-page="dashboard"><span>▦</span> Overview</button>
+        <button class="nav-link" data-page="notices"><span>▤</span> Notice board <i id="noticeNavCount">2</i></button>
+        <button class="nav-link" data-page="calculator"><span>₹</span> Maintenance calculator</button>
+        <button class="nav-link" data-page="bookings"><span>▦</span> Amenity bookings</button>
+        <button class="nav-link" data-page="tickets"><span>◎</span> Grievance tickets</button>
+        <button class="nav-link" data-page="directory"><span>♙</span> Residents & profile</button>
+        <button class="nav-link security-only" data-page="security"><span>▣</span> Security desk</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">✦</div><strong>Need a hand?</strong><p>Reach the society management team for assistance.</p><a href="mailto:help@greenwood.example">Contact support ↗</a></div>
+        <div class="user-mini"><div class="avatar">AS</div><div><strong id="sideUserName">Aarav Sharma</strong><small id="sideUserRole">Resident · B-1204</small></div><button id="logoutBtn" title="Switch role">⋯</button></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
+        <div class="breadcrumb">Greenwood Residency <span>/</span> <strong id="pageCrumb">Overview</strong></div>
+        <div class="top-actions"><span class="live-dot">●</span><span class="today" id="todayLabel"></span><label class="role-switch">View as <select id="roleSelect" aria-label="Select demo role"><option>Resident</option><option>RWA Admin</option><option>Security</option></select></label><button class="icon-btn" id="themeToggle" title="Toggle dark mode">◐</button><div class="avatar">AS</div></div>
+      </header>
+
+      <section class="page active" id="page-dashboard">
+        <div class="welcome-row"><div><p class="eyebrow">COMMUNITY AT A GLANCE</p><h1>Good afternoon, <span id="welcomeName">Aarav</span> <span class="wave">✦</span></h1><p class="muted">Here’s what’s happening in your community today.</p></div><button class="btn btn-primary" id="quickAction">＋ Quick action</button></div>
+        <div id="roleDashboard" class="role-dashboard"></div>
+        <div class="stat-grid resident-dashboard">
+          <article class="stat-card"><div class="stat-top"><span>Maintenance due</span><span class="stat-icon blue">₹</span></div><strong>₹4,850</strong><small><span class="warning-text">Due 10 Nov</span> · Flat B-1204</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Open grievances</span><span class="stat-icon orange">◎</span></div><strong id="dashOpen">8</strong><small>Across the community</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Upcoming bookings</span><span class="stat-icon purple">▦</span></div><strong id="dashBookings">12</strong><small>In the next 7 days</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Unread notices</span><span class="stat-icon green">▤</span></div><strong id="dashUnread">2</strong><small>Community updates</small></article>
+        </div>
+        <div class="dashboard-grid resident-dashboard">
+          <article class="panel notice-panel"><div class="panel-heading"><div><p class="eyebrow">STAY INFORMED</p><h2>Latest notices</h2></div><button class="text-button" data-go="notices">View all →</button></div><div id="dashboardNotices" class="compact-notices"></div></article>
+          <article class="panel"><div class="panel-heading"><div><p class="eyebrow">YOUR COMMUNITY</p><h2>Quick services</h2></div></div><div class="service-grid"><button class="service-tile" data-go="calculator"><span class="service-symbol blue">₹</span><b>Calculate dues</b><small>Estimate your monthly bill</small></button><button class="service-tile" data-go="bookings"><span class="service-symbol purple">▦</span><b>Book an amenity</b><small>Reserve shared spaces</small></button><button class="service-tile" data-go="tickets"><span class="service-symbol orange">◎</span><b>Raise a grievance</b><small>Get help from management</small></button><button class="service-tile" data-go="notices"><span class="service-symbol green">▤</span><b>Read notices</b><small>Latest society updates</small></button></div></article>
+          <article class="panel activity-panel"><div class="panel-heading"><div><p class="eyebrow">RECENT UPDATES</p><h2>Community activity</h2></div></div><div class="activity-list"><div class="activity-item"><span class="activity-dot green-bg"></span><div><b>Clubhouse booking confirmed</b><p>Priya Mehta · Tomorrow, 6:00 PM</p></div><time>10:42 AM</time></div><div class="activity-item"><span class="activity-dot orange-bg"></span><div><b>New plumbing grievance</b><p>Block C · Ticket #GW-1048</p></div><time>09:18 AM</time></div><div class="activity-item"><span class="activity-dot blue-bg"></span><div><b>Maintenance reminder sent</b><p>November billing cycle</p></div><time>Yesterday</time></div></div></article>
+          <article class="panel contact-panel"><div class="panel-heading"><div><p class="eyebrow">HERE TO HELP</p><h2>Emergency contacts</h2></div></div><div class="contact-row"><span class="contact-icon">☎</span><div><b>Security desk</b><small>24 × 7 assistance</small></div><a href="tel:01824000000">Call</a></div><div class="contact-row"><span class="contact-icon">⌁</span><div><b>Maintenance office</b><small>9 AM – 6 PM</small></div><a href="tel:01824000001">Call</a></div></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-notices">
+        <div class="page-heading"><div><p class="eyebrow">COMMUNITY UPDATES</p><h1>Notice board</h1><p class="muted">Important announcements from your RWA management team.</p></div><button class="btn btn-primary admin-only" id="addNoticeBtn">＋ Add notice</button></div>
+        <div class="filter-row"><div class="filter-pills" id="noticeFilters"><button class="filter active" data-filter="All">All notices</button><button class="filter" data-filter="Emergency">Emergency</button><button class="filter" data-filter="Meetings">Meetings</button><button class="filter" data-filter="Maintenance">Maintenance</button><button class="filter" data-filter="Pest Control">Pest control</button></div><span class="muted small" id="noticeCount"></span></div>
+        <div class="notice-grid" id="noticeList"></div>
+      </section>
+
+      <section class="page" id="page-calculator">
+        <div class="page-heading"><div><p class="eyebrow">SIMPLE & TRANSPARENT</p><h1>Maintenance calculator</h1><p class="muted">Get an estimate of your monthly society maintenance charges.</p></div></div>
+        <div class="calculator-layout"><article class="panel form-panel"><h2>Flat details</h2><p class="muted small">Enter your flat information to calculate the amount payable.</p><form id="calcForm" class="form-grid"><label>Flat number<input id="flatNumber" value="B-1204" required></label><label>Flat area (sq. ft.)<input id="area" type="number" min="1" value="1200" required></label><label>Occupancy type<select id="occupancy"><option value="self">Self-occupied</option><option value="rented">Rented</option><option value="vacant">Vacant</option></select></label><label>Late payment days<input id="lateDays" type="number" min="0" value="10" required></label><div class="settings-box"><div><b>Society rate settings</b><small>Demo rates · Admin configurable in code</small></div><label>Rate / sq. ft. <input id="rate" type="number" min="0" step="0.01" value="2.5"></label><label>Common area (₹) <input id="commonCharge" type="number" min="0" value="500"></label><label>Sinking fund (%) <input id="sinkingRate" type="number" min="0" max="100" value="10"></label><label>Grace period (days) <input id="graceDays" type="number" min="0" value="5"></label><label>Fine per day (₹) <input id="fineRate" type="number" min="0" value="50"></label></div><button class="btn btn-primary full" type="submit">Calculate maintenance →</button></form></article>
+        <article class="panel bill-panel"><div class="bill-top"><span class="bill-icon">₹</span><div><p class="eyebrow">ESTIMATED MONTHLY BILL</p><h2>Your breakdown</h2></div></div><div id="billBreakdown" class="bill-breakdown"><div class="empty-state">Enter your flat details and calculate to see your bill.</div></div><div class="bill-total"><span>Total payable</span><strong id="billTotal">₹0.00</strong></div><button class="btn btn-dark full" id="printReceipt" disabled>↗ Generate / print receipt</button><p class="fine-print">This is a demo estimate. Final charges are subject to RWA approval.</p></article></div>
+      </section>
+
+      <section class="page" id="page-bookings">
+        <div class="page-heading"><div><p class="eyebrow">SHARED SPACES, BETTER MOMENTS</p><h1>Amenity bookings</h1><p class="muted">Check availability and reserve community amenities.</p></div><button class="btn btn-primary" id="newBookingBtn">＋ New booking</button></div>
+        <div class="booking-layout"><article class="panel calendar-panel"><div class="calendar-toolbar"><button class="icon-btn" id="prevMonth">‹</button><h2 id="calendarMonth"></h2><button class="icon-btn" id="nextMonth">›</button><select id="amenityFilter"><option value="All">All amenities</option><option>Clubhouse</option><option>Party Lawn</option><option>Pool</option><option>Gym Hall</option></select></div><div class="calendar-grid" id="calendarGrid"></div><div class="legend"><span><i class="available-dot"></i> Available</span><span><i class="booked-dot"></i> Booked</span><span><i class="selected-dot"></i> Selected</span></div></article><aside class="panel booking-side"><h2>Booking rules</h2><div class="rule"><b>01</b><div><strong>Guest limits</strong><p>Clubhouse: 80 · Party Lawn: 150 · Pool: 20 · Gym Hall: 40</p></div></div><div class="rule"><b>02</b><div><strong>Booking limits</strong><p>Maximum 2 active bookings per flat per month.</p></div></div><div class="rule"><b>03</b><div><strong>Cancellation</strong><p>Cancel at least 24 hours before your reserved slot.</p></div></div><div class="slot-legend"><span class="available-dot"></span> Available slots <span class="booked-dot"></span> Booked slots</div><h3>Upcoming reservations</h3><div id="upcomingBookings"></div></aside></div>
+      </section>
+
+      <section class="page" id="page-tickets">
+        <div class="page-heading"><div><p class="eyebrow">WE'RE HERE TO HELP</p><h1>Grievance centre</h1><p class="muted">Raise an issue and follow its progress until it’s resolved.</p></div><button class="btn btn-primary" id="newTicketBtn">＋ Raise a ticket</button></div>
+        <div class="ticket-stats"><div class="mini-stat"><span>Open / submitted</span><strong id="ticketOpen">0</strong></div><div class="mini-stat"><span>In progress</span><strong id="ticketProgress">0</strong></div><div class="mini-stat"><span>Resolved</span><strong id="ticketResolved">0</strong></div></div>
+        <div class="ticket-toolbar"><input id="ticketSearch" placeholder="Search ticket ID, category or location…" aria-label="Search tickets"><select id="ticketCategoryFilter"><option value="All">All categories</option><option>Plumbing</option><option>Electrical</option><option>Housekeeping</option><option>Security</option><option>Other</option></select></div>
+        <div class="kanban" id="kanbanBoard"></div>
+      </section>
+
+      <section class="page" id="page-directory">
+        <div class="page-heading"><div><p class="eyebrow">YOUR COMMUNITY</p><h1>Residents & profile</h1><p class="muted">Manage your demo profile and discover your neighbours.</p></div></div>
+        <div class="directory-layout"><article class="panel profile-panel"><div class="profile-cover"></div><div class="profile-avatar">AS</div><h2 id="profileName">Aarav Sharma</h2><p class="muted">Resident · Flat B-1204</p><form id="profileForm" class="profile-form"><label>Full name<input id="residentName" value="Aarav Sharma" required></label><label>Flat number<input id="residentFlat" value="B-1204" required></label><label>Email<input id="residentEmail" type="email" value="aarav@example.com"></label><label class="toggle-label"><input id="privacyToggle" type="checkbox" checked> Show my name in resident directory</label><button class="btn btn-primary full">Save profile</button></form></article><article class="panel directory-panel"><div class="panel-heading"><div><p class="eyebrow">MEET YOUR NEIGHBOURS</p><h2>Resident directory</h2></div><input id="residentSearch" class="search-input" placeholder="Search residents…"></div><div id="residentList"></div><p class="fine-print">Only residents who enable directory visibility are shown. Demo information only.</p></article></div>
+      </section>
+      <section class="page" id="page-security">
+        <div class="page-heading"><div><p class="eyebrow">GATE & VISITOR OPERATIONS</p><h1>Security desk</h1><p class="muted">Register visitors, track entry status and review today's gate activity.</p></div></div>
+        <div class="ticket-stats security-stats"><div class="mini-stat"><span>Visitors expected / logged</span><strong id="visitorTotal">0</strong></div><div class="mini-stat"><span>Currently inside</span><strong id="visitorInside">0</strong></div><div class="mini-stat"><span>Checked out</span><strong id="visitorExited">0</strong></div></div>
+        <div class="directory-layout"><article class="panel form-panel"><h2>Register a visitor</h2><p class="muted small">Record visitor details and the flat they are visiting.</p><form id="visitorForm" class="form-grid"><label>Visitor name<input name="name" required maxlength="70" placeholder="Full name"></label><label>Phone number<input name="phone" required inputmode="tel" maxlength="15" placeholder="Contact number"></label><label>Visiting flat<input name="flat" required placeholder="e.g. B-1204"></label><label>Purpose<select name="purpose"><option>Personal visit</option><option>Delivery</option><option>Maintenance work</option><option>Guest</option><option>Other</option></select></label><label>Vehicle number (optional)<input name="vehicle" placeholder="e.g. PB10AB1234"></label><button class="btn btn-primary full" type="submit">＋ Register entry</button></form></article>
+        <article class="panel directory-panel"><div class="panel-heading"><div><p class="eyebrow">GATE REGISTER</p><h2>Visitor log</h2></div><input id="visitorSearch" class="search-input" placeholder="Search visitor / flat"></div><div id="visitorList"></div><p class="fine-print">Demo-only visitor log stored in this browser. Do not enter real sensitive personal information.</p></article></div>
+      </section>
+      <footer class="footer">© 2026 Greenwood Residency RWA <span>Made for a better community · Demo portal</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-header"><h2 id="modalTitle">Details</h2><button class="icon-btn" id="closeModal" aria-label="Close dialog">×</button></div><div id="modalBody"></div></section></div>
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
